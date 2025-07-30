@@ -71,6 +71,36 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               )
+            ),
+
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              width: double.infinity,
+              child: ElevatedButton(onPressed: () {
+                String email = emailController.text.trim();
+              
+                if (!email.endsWith("@gmail.com")) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Email is not valid!"),
+                    backgroundColor: Colors.red,)
+                  );
+                  return;
+                }
+              
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Registration Successful!"),
+                  backgroundColor: Colors.green,)
+                );
+              }, child: Text("Register"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurple,
+                foregroundColor: Colors.white,
+                padding: EdgeInsets.symmetric(vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),),
+              
             )
           ],
           ),
