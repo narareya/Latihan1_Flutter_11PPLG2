@@ -39,6 +39,7 @@ class _RegisterPageState extends State<RegisterPage> {
             InputField(input: "Email", controller: emailController, isPassword: false,),
             InputField(input: "Password", controller: passwordController, isPassword: true,),
             
+            
             GenderSelect(selectedGender: selectedGender,
             onChanged: (value) {
               setState(() {
@@ -46,6 +47,7 @@ class _RegisterPageState extends State<RegisterPage> {
               });
             },),
 
+            // Date Picker
             Container(
               margin: EdgeInsets.all(10),
               child: Row(
@@ -73,35 +75,28 @@ class _RegisterPageState extends State<RegisterPage> {
               )
             ),
 
+            // Custom Button
             Container(
               margin: EdgeInsets.only(top: 20),
               width: double.infinity,
-              child: ElevatedButton(onPressed: () {
+              child: CustomButton(onPressed: () {
                 String email = emailController.text.trim();
-              
-                if (!email.endsWith("@gmail.com")) {
+                
+                  if (!email.endsWith("@gmail.com")) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Email is not valid!"),
+                      backgroundColor: Colors.red,)
+                    );
+                    return;
+                  }
+                
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Email is not valid!"),
-                    backgroundColor: Colors.red,)
+                    SnackBar(content: Text("Registration Successful!"),
+                    backgroundColor: Colors.green,)
                   );
-                  return;
-                }
-              
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("Registration Successful!"),
-                  backgroundColor: Colors.green,)
-                );
-              }, child: Text("Register"),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepPurple,
-                foregroundColor: Colors.white,
-                padding: EdgeInsets.symmetric(vertical: 15),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),),
-              
-            )
+              }, label: "Register"),
+            ),
+            
           ],
           ),
       ),
