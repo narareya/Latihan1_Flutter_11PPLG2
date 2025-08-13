@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/register_page.dart';
+import 'package:flutter_application_1/widget/widget_component.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
@@ -24,15 +25,8 @@ class _loginPageState extends State<loginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              child: Text(
-                "Welcome to our application",
-                style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                ),),
-            ), // font, warna, bold
-
+            CustomText(data: "Welcome to our application!"), // font, warna, bold
+            
             Center(
               child: Image.asset(
                 "assets/image1.jpeg",

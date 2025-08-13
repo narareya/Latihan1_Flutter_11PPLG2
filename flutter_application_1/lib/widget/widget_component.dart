@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InputField extends StatelessWidget {
   final String input;
   final TextEditingController controller;
   final bool isPassword;
-  const InputField({super.key, required this.input, required this.controller, required this.isPassword});
+  final bool isNumberOnly;
+  const InputField({super.key, required this.input, required this.controller, required this.isPassword, this.isNumberOnly = false});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,9 @@ class InputField extends StatelessWidget {
       margin: EdgeInsets.all(10),
       child: TextField(
         controller: controller,
+        keyboardType: isNumberOnly ? TextInputType.number : TextInputType.text,
         textAlign: TextAlign.start,
+        inputFormatters: isNumberOnly ? [FilteringTextInputFormatter.digitsOnly] : [],
         obscureText: isPassword,
         decoration: InputDecoration(
           labelText: input,
@@ -79,6 +83,49 @@ class DatePicker extends StatelessWidget {
           ),
           ),
       ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String label;
+  const CustomButton({super.key, required this.onPressed, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: ElevatedButton(
+        onPressed: () {
+          onPressed();
+        },
+        child: Text(label),
+        style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.deepPurple,
+              foregroundColor: Colors.white,
+              padding: EdgeInsets.symmetric(vertical: 15),
+              shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+          )),
+      ),
+    );
+  }
+}
+
+class CustomText extends StatelessWidget {
+  final String data;
+  const CustomText({super.key, required this.data});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text(
+        data,
+        style: TextStyle(
+          fontSize: 35,
+          fontWeight: FontWeight.bold,
+        ),
+      )
     );
   }
 }
