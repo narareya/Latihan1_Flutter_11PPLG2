@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/calculator_page.dart';
+import 'package:flutter_application_1/routes/pages.dart';
+import 'package:flutter_application_1/routes/routes.dart';
 import 'package:get/get.dart';
 
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
         // This is the theme of your application.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: CalculatorPage(),
+      initialRoute: AppRoutes.calculatorPage,
+      getPages: AppPages.pages,
     );
   }
 }

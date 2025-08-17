@@ -1,0 +1,13 @@
+import 'package:flutter_application_1/models/player_model.dart';
+import 'package:get/get.dart';
+
+class FootballController extends GetxController {
+
+  var players = <PlayerModel> [
+    PlayerModel(name: "Cristiano Ronaldo", position: "Winger", number: 7, image: "assets/cristiano.jpg"),
+    PlayerModel(name: "Lionel Messi", position: "Playmaker", number: 10, image: "assets/messi.jpg"),
+    PlayerModel(name: "David Beckham", position: "Winger", number: 7, image: "assets/david.jpeg"),
+    PlayerModel(name: "Aaron Clapham", position: "Midfielder", number: 8, image: "assets/aaron.jpeg"),
+    PlayerModel(name: "Kang Min-Soo", position: "Defender", number: 20, image: "assets/minsoo.jpg"),
+  ].obs;
+}
