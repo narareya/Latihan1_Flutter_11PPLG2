@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controller/calculator_controller.dart';
-import 'package:flutter_application_1/routes/routes.dart';
 import 'package:flutter_application_1/widget/widget_component.dart';
 import 'package:get/get.dart';
 
@@ -64,14 +63,7 @@ class CalculatorPage extends StatelessWidget {
             calculatorController.clear();
           }, label: "Clear"),
 
-          Container(
-            margin: EdgeInsets.all(30),
-            child: CustomButton(
-              onPressed: () {
-              Get.toNamed(AppRoutes.footballPage);
-            }, 
-            label: "Football Page"),
-          ),
+          
         ],
       ),
     );
