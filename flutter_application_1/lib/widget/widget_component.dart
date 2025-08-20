@@ -129,3 +129,51 @@ class CustomText extends StatelessWidget {
     );
   }
 }
+
+class RectButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String label;
+  final IconData icon;
+
+  const RectButton({super.key, required this.onPressed, required this.label, required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black,
+            blurRadius: 5,
+            offset: Offset(0, 2),
+          )
+        ],
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: onPressed,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical:16, horizontal: 12),
+          child: Row(
+            children: [
+              Icon(icon, color: Colors.deepPurple,),
+              SizedBox(width: 12,),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              )
+  
+            ],
+          ),
+          
+          ),
+        ),
+    );
+  }
+}
