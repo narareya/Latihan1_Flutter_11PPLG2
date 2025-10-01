@@ -4,9 +4,9 @@ import 'package:flutter_application_1/controller/football_controller.dart';
 import 'package:flutter_application_1/routes/routes.dart';
 import 'package:get/get.dart';
 
-class FootballPlayer extends StatelessWidget {
+class PlayerFragment extends StatelessWidget {
   final FootballController footballController = Get.put(FootballController());
-  FootballPlayer({super.key});
+  PlayerFragment({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +22,9 @@ class FootballPlayer extends StatelessWidget {
               var player = footballController.players[index];
               return ListTile(
                 onTap: () {
-                  print("player clicked :"+ footballController.players[index].name);
                   Get.toNamed(
                     AppRoutes.editplayerPage,
-                    arguments: index,
+                    arguments: player,
                   );
                 },
                 leading: Image.asset(

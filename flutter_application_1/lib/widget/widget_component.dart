@@ -146,7 +146,7 @@ class RectButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black,
+            color: const Color.fromARGB(47, 0, 0, 0),
             blurRadius: 5,
             offset: Offset(0, 2),
           )
@@ -168,10 +168,8 @@ class RectButton extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               )
-  
             ],
           ),
-          
           ),
         ),
     );

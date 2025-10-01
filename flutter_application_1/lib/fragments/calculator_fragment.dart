@@ -4,10 +4,9 @@ import 'package:flutter_application_1/widget/widget_component.dart';
 import 'package:get/get.dart';
 
 
-class CalculatorPage extends StatelessWidget {
-  CalculatorPage({super.key});
-  // final CalculatorController calculatorController = Get.put(CalculatorController());
-  final calculatorController = Get.find<CalculatorController>();
+class CalculatorFragment extends StatelessWidget {
+  CalculatorFragment({super.key});
+  final CalculatorController calculatorController = Get.put(CalculatorController());
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class CalculatorPage extends StatelessWidget {
         children: [
           InputField(input: "Angka 1", controller: calculatorController.txtAngka1, isPassword: false, isNumberOnly: true),
           InputField(input: "Angka 2", controller: calculatorController.txtAngka2, isPassword: false, isNumberOnly: true),
-          Container(
+          Container(  
             alignment: Alignment.center,
             margin: EdgeInsets.all(20),
             child: Row(
