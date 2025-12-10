@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controller/googleauth_controller.dart';
 import 'package:flutter_application_1/controller/login_controller.dart';
 import 'package:flutter_application_1/widget/widget_component.dart';
 import 'package:get/get.dart';
@@ -6,6 +7,7 @@ import 'package:get/get.dart';
 class ProfileFragment extends StatelessWidget {
   ProfileFragment({super.key});
   final loginController = Get.find<LoginController>();
+  final authController = Get.find<GoogleauthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +16,15 @@ class ProfileFragment extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage("assets/profile.png"),
+              backgroundImage: authController.photoURL.value.isNotEmpty
+                ? NetworkImage(authController.photoURL.value)
+                : const AssetImage("assets/profile.png") as ImageProvider,
             ),
             const SizedBox(height: 20),
-            const Text(
-                "Esta Janitra Lituhayu",
+            Text(
+                authController.displayName.value.isNotEmpty ? authController.displayName.value : "Guest user",
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -29,8 +33,8 @@ class ProfileFragment extends StatelessWidget {
               const SizedBox(height: 8),
 
               // Email / Bio
-              const Text(
-                "11 PPLG 2",
+              Text(
+                authController.email.value.isNotEmpty ? authController.email.value : "No Email",
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
@@ -41,7 +45,18 @@ class ProfileFragment extends StatelessWidget {
 
               CustomButton(
                 onPressed: () {
-                  loginController.logout();
+                  Get.defaultDialog(
+                    title: "Konfirmasi Logout",
+                    middleText: "Apakah kamu yakin ingin logout?",
+                    textConfirm: "Ya",
+                    textCancel: "Tidak",
+                    confirmTextColor: Colors.white,
+                    onConfirm: () {
+                      authController.signOut();
+                      Get.back(); // Tutup dialog setelah logout
+                    },
+                    onCancel: () {},
+                  );
                 }, label: "Logout")
           ],
         )

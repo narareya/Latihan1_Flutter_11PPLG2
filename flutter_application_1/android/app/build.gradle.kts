@@ -1,8 +1,10 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    id("org.jetbrains.kotlin.android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+    // 👇 Add this for Firebase
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -13,6 +15,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
@@ -39,6 +42,14 @@ android {
     }
 }
 
+// 👇 Add this block at the very bottom (optional, for clarity)
+dependencies {
+    // Firebase Messaging SDK
+    implementation("com.google.firebase:firebase-messaging:24.1.0")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
+}
+
 flutter {
     source = "../.."
 }
+

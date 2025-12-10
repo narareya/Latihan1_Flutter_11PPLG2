@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "927905998935",
+    "project_id": "flutterlatihannotif",
+    "storage_bucket": "flutterlatihannotif.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927905998935:android:ab0735d35cd3f359ab9b12",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhrIpPBcMttwjikvfyZnYMLNSpC9UGN8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

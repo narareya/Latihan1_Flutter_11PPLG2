@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controller/login_controller.dart';
-import 'package:flutter_application_1/routes/routes.dart';
 import 'package:flutter_application_1/widget/widget_component.dart';
 import 'package:get/get.dart';
 
