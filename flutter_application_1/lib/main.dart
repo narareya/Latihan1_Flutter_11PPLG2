@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controller/notification_controller.dart';
 import 'package:flutter_application_1/routes/pages.dart';
 import 'package:flutter_application_1/routes/routes.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,8 @@ void main() async {
   // Set background handler
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
+  Get.put(NotificationController());
+  
   runApp(const MyApp());
 }
 
